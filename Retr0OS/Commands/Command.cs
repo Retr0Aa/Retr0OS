@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Retr0OS.Commands
 {
-    public abstract class Command
+    public class Command
     {
         public string name;
         public string description;
@@ -17,6 +17,6 @@ namespace Retr0OS.Commands
             this.description = description;
         }
 
-        public abstract void Execute(string[] args);
+        public virtual void Execute(string[] args) { }
     }
 }
