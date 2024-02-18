@@ -23,6 +23,10 @@ nav {
     background-color: white;
 }
 
+.navbar-logo {
+    width: 200px;
+}
+
 nav button {
     margin-left: 10px;
 }

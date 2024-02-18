@@ -14,8 +14,12 @@ namespace Retr0OS.Commands
         public CommandManager(CosmosVFS fs)
         {
             commands = new List<Command>(1);
-            commands.Add(new InfoCommand(fs));
             commands.Add(new CDCommand());
+            commands.Add(new DiskCommand());
+            commands.Add(new ViewCommand());
+            commands.Add(new ClearCommand());
+            commands.Add(new EditCommand());
+            commands.Add(new InfoCommand(fs));
             commands.Add(new HelpCommand(commands));
         }
 

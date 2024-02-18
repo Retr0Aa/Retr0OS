@@ -28,7 +28,7 @@ namespace Retr0OS
 
         protected override void Run()
         {
-            Console.Write(Directory.GetCurrentDirectory() + ">");
+            Console.Write(new DirectoryInfo(Directory.GetCurrentDirectory()).FullName + ">");
             var input = Console.ReadLine();
 
             commandManager.ProcessInput(input);
