@@ -1,9 +1,5 @@
-﻿using Cosmos.System.FileSystem;
-using Retr0OS.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
 using Sys = Cosmos.System;
 
@@ -11,27 +7,18 @@ namespace Retr0OS
 {
     public class Kernel : Sys.Kernel
     {
-        private CommandManager commandManager;
 
         protected override void BeforeRun()
         {
-            CosmosVFS fs = new CosmosVFS();
-            Sys.FileSystem.VFS.VFSManager.RegisterVFS(fs);
-            Directory.SetCurrentDirectory(@"0:\");
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Retr0OS Booted Successfully!");
-            Console.ForegroundColor = ConsoleColor.White;
-
-            commandManager = new CommandManager(fs);
+            Console.WriteLine("Cosmos booted successfully. Type a line of text to get it echoed back.");
         }
 
         protected override void Run()
         {
-            Console.Write(new DirectoryInfo(Directory.GetCurrentDirectory()).FullName + ">");
+            Console.Write("Input: ");
             var input = Console.ReadLine();
-
-            commandManager.ProcessInput(input);
+            Console.Write("Text typed: ");
+            Console.WriteLine(input);
         }
     }
 }
